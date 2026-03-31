@@ -15,7 +15,8 @@ const nextConfig: NextConfig = {
       "shop.vinfastauto.com",
       "p9-sign-sg.tiktokcdn.com",
       "p16-common-sign.tiktokcdn.com",
-      "p16-sign-sg.tiktokcdn.com"
+      "p16-sign-sg.tiktokcdn.com",
+      "p19-common-sign.tiktokcdn.com"
     ],
   },
 };

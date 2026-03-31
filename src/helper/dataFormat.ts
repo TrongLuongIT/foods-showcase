@@ -7,8 +7,8 @@
  */
 
 export interface FooterCollectionInterface {
-    title: string;
-    rows: string[];
+	title: string;
+	rows: string[];
 }
 
 export const footerCollections = (data:any[] = []): FooterCollectionInterface[] => {
@@ -34,32 +34,33 @@ export const footerCollections = (data:any[] = []): FooterCollectionInterface[] 
 }
 
 export interface HeaderMenuInterface {
-    name: string;
-    link: string;
+	name: string;
+	link: string;
 }
 
 export const headerMenu = (data: any[] = []): HeaderMenuInterface[] => {
-    return [
-        { name: 'Trang chủ', link: '/' },
-        // { name: 'Sản phẩm', link: '/products' },
-        // { name: 'Giới thiệu', link: '/about' },
-        { name: 'Liên hệ', link: '/contact' }
-    ]
+	return [
+		{ name: 'Trang chủ', link: '/' },
+		// { name: 'Sản phẩm', link: '/products' },
+		// { name: 'Giới thiệu', link: '/about' },
+		{ name: 'Liên hệ', link: '/contact' }
+	]
 }
 
 export interface SocialMediaInterface {
-    link: string;
-    thumbnail: string;
+	link: string;
+	thumbnail: string;
+	id: number|string;
 }
 
-const kokoThump = 'https://p9-sign-sg.tiktokcdn.com/tos-alisg-p-0037/oEEOQ4OfNfAQg9IjT3dTSOFewRNDM9ADAEw20C~tplv-photomode-zoomcover:720:720.avif?dr=14555&x-expires=1774771200&x-signature=%2FV0AnK%2FcMts0cTb6OFUOwbXyHG8%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2&ftpl=1 1x, https://p9-sign-sg.tiktokcdn.com/tos-alisg-p-0037/oEEOQ4OfNfAQg9IjT3dTSOFewRNDM9ADAEw20C~tplv-photomode-zoomcover:720:720.avif?dr=14555&x-expires=1774771200&x-signature=%2FV0AnK%2FcMts0cTb6OFUOwbXyHG8%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2&ftpl=1 2x';
+const kokoThump = 'https://p16-sign-sg.tiktokcdn.com/tos-alisg-p-0037/oMMTFoeRACjy2hQ9M8jIIfsDe784YAYORhAOWP~tplv-tiktokx-origin.image?dr=14575&x-expires=1775091600&x-signature=7iWl1wcihMtDK5TXsmlwoxDO7f0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2 1x, https://p16-sign-sg.tiktokcdn.com/tos-alisg-p-0037/oMMTFoeRACjy2hQ9M8jIIfsDe784YAYORhAOWP~tplv-tiktokx-origin.image?dr=14575&x-expires=1775091600&x-signature=7iWl1wcihMtDK5TXsmlwoxDO7f0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2 2x';
 
 export const socialMediaLinksFormat = (data: any[] = []): SocialMediaInterface[] => {
     return [
-        { link: 'https://www.tiktok.com/@kokoria.chicken/video/7486328584022265096?is_from_webapp=1&sender_device=pc&web_id=7541402245171594760', thumbnail: kokoThump },
-        { link: 'https://www.tiktok.com/@kokoria.chicken/video/7201081758522133787?is_from_webapp=1&sender_device=pc&web_id=7541402245171594760', thumbnail: "https://p16-sign-sg.tiktokcdn.com/tos-alisg-p-0037/oMMTFoeRACjy2hQ9M8jIIfsDe784YAYORhAOWP~tplv-tiktokx-origin.image?dr=14575&x-expires=1774771200&x-signature=0gEDtOuTrL8uX2uX8uWI5wcthBg%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2 1x, https://p16-sign-sg.tiktokcdn.com/tos-alisg-p-0037/oMMTFoeRACjy2hQ9M8jIIfsDe784YAYORhAOWP~tplv-tiktokx-origin.image?dr=14575&x-expires=1774771200&x-signature=0gEDtOuTrL8uX2uX8uWI5wcthBg%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2 2x" },
-        { link: 'https://www.tiktok.com/@kokoria.chicken/video/7140643763851922715?is_from_webapp=1&sender_device=pc&web_id=7541402245171594760', thumbnail: "https://p16-common-sign.tiktokcdn.com/tos-alisg-i-photomode-sg/971933ec533d441cb0ffd0e9df006f40~tplv-photomode-image.jpeg?dr=14555&x-expires=1774771200&x-signature=u71WMNIyFMDZXDHAfKQlQB3n9AE%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=9b759fb9&idc=my2&ftpl=1 1x, https://p16-common-sign.tiktokcdn.com/tos-alisg-i-photomode-sg/971933ec533d441cb0ffd0e9df006f40~tplv-photomode-image.jpeg?dr=14555&x-expires=1774771200&x-signature=u71WMNIyFMDZXDHAfKQlQB3n9AE%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=9b759fb9&idc=my2&ftpl=1 2x" },
-        { link: 'https://www.tiktok.com/@kokoria.chicken/video/7618524802747354389?is_from_webapp=1&sender_device=pc&web_id=7541402245171594760', thumbnail: kokoThump }
+        { link: 'https://www.tiktok.com/@kokoria.chicken/video/7486328584022265096?is_from_webapp=1&sender_device=pc&web_id=7541402245171594760', thumbnail: kokoThump, id: 1 },
+        { link: 'https://www.tiktok.com/@kokoria.chicken/video/7201081758522133787?is_from_webapp=1&sender_device=pc&web_id=7541402245171594760', thumbnail: "https://p16-common-sign.tiktokcdn.com/tos-useast2a-p-0037-aiso/oYbvfgQIDqnA7Pce2bBdHjYBC07DVCBUEFbvbV~tplv-tiktokx-origin.image?dr=14575&x-expires=1775091600&x-signature=6nVGbjRa1NRRJRZqQxWhT5blzLc%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2 1x, https://p16-common-sign.tiktokcdn.com/tos-useast2a-p-0037-aiso/oYbvfgQIDqnA7Pce2bBdHjYBC07DVCBUEFbvbV~tplv-tiktokx-origin.image?dr=14575&x-expires=1775091600&x-signature=6nVGbjRa1NRRJRZqQxWhT5blzLc%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2 2x", id: 2 },
+        { link: 'https://www.tiktok.com/@kokoria.chicken/video/7616577357150801172', thumbnail: "https://p19-common-sign.tiktokcdn.com/tos-alisg-p-0037/okYNKB8czbNVKEnacOIXCAihOvAEIGYwqiEUB~tplv-tiktokx-origin.image?dr=14575&x-expires=1775091600&x-signature=Omiakkzxvpi84IpVuEo6egW9WDk%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2 1x, https://p19-common-sign.tiktokcdn.com/tos-alisg-p-0037/okYNKB8czbNVKEnacOIXCAihOvAEIGYwqiEUB~tplv-tiktokx-origin.image?dr=14575&x-expires=1775091600&x-signature=Omiakkzxvpi84IpVuEo6egW9WDk%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2 2x", id: 3 },
+        { link: 'https://www.tiktok.com/@kokoria.chicken/video/7618524802747354389?is_from_webapp=1&sender_device=pc&web_id=7541402245171594760', thumbnail: kokoThump, id: 4 }
     ]
 }
 
