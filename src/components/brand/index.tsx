@@ -23,6 +23,11 @@ export default function Brand() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const onSubmitFormMobile = (formData: FormData) => {
+    modalRef.current?.close();
+    formAction(formData);
+  }
+
   return (
     <div className="container-fluid sticky-brand">
       <div className="container px-0 px-sm-3 py-3 py-md-0 d-flex justify-content-between">
@@ -71,8 +76,43 @@ export default function Brand() {
           </>) : 
           <>
             <div className='text-center w-100' onClick={() => modalRef.current?.open()}>Liên hệ nhượng quyền</div>
-            <BottomModal ref={modalRef}>
-              đây là modal
+            <BottomModal ref={modalRef} title="Liên hệ nhượng quyền">
+              <form action={onSubmitFormMobile}>
+                <div className="py-3 px-1">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Họ và tên"
+                    required
+                    className="form-control"
+                  />
+                </div>
+                <div className="py-3 px-1">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="form-control"
+                  />
+                </div>
+                <div className="py-3 px-1">
+                  <input
+                    type="text"
+                    name="message"
+                    className="form-control"
+                    placeholder="Nội dung"
+                    required
+                  />
+                </div>
+                <div className="y-3">
+                  {
+                    isPending ? 
+                      <div className="btn btn-primary w-100">Đang gửi...</div> :
+                      <button type="submit" className="btn btn-primary w-100">Gửi</button>
+                  }
+                </div>
+              </form>
             </BottomModal>
           </>
         }
