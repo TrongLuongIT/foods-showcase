@@ -1,16 +1,15 @@
 import apiClient from "./api-client";
 import { cache } from "react";
 
-import { ProductInterface, listProduct } from "@/src/helper/dataFormat";
+import { ProductInterface, foodFormat } from "@/src/helper/dataFormat";
+import { getFoodLink } from "./api-link";
 
-export const ProductService = {
-
-  // Dùng cache để tối ưu hiệu năng trên Server
-  getAll: cache(async (): Promise<ProductInterface[]> => {
-    // const response = await apiClient.get("/products");
-    return listProduct();
-  }),
-};
+export const getFoods = cache(async (): Promise<ProductInterface[]> => {
+	const response = await apiClient.get(getFoodLink);
+	const data =  foodFormat(response?.data);
+  console.log("#12312", data)
+  return data;
+});
 
 interface MockImage {
   id: number;

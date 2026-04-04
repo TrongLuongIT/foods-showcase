@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import { API_URL } from '@/src/helper/config';
 
 /**
  * Hàm lấy Token từ Server:
@@ -21,7 +22,7 @@ const getAuthToken = async () => {
 };
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://api.example.com',
+  baseURL: API_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -44,8 +45,16 @@ apiClient.interceptors.request.use(async (config) => {
 apiClient.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    // Nếu gặp lỗi 401 trên Server, bạn có thể xử lý logic redirect ở Middleware
-    return Promise.reject(error.response?.data || { message: error.message });
+    const errorResponse = error.response?.data;
+    
+    console.error("--- ❌ API ERROR ---");
+    console.error("URL:", error.config?.url);
+    console.error("Status:", error.response?.status);
+    console.error("Message:", errorResponse?.error?.message || error.message);
+    console.error("--------------------");
+
+    const errorMessage = error.response?.data || error.message;
+    throw new Error(errorMessage);
   }
 );
 
