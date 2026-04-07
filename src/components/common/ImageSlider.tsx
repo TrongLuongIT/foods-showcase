@@ -82,7 +82,7 @@ export default function ImageSlider({ images }: SliderProps) {
         >
           <Image
             src={images[imageIndex].src}
-            alt={images[imageIndex].alt}
+            alt={images[imageIndex].alt || ''}
             width={0}
             height={0}
             sizes="100vw"
