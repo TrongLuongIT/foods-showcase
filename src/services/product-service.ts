@@ -7,7 +7,6 @@ import { getFoodLink } from "./api-link";
 export const getFoods = cache(async (): Promise<ProductInterface[]> => {
 	const response = await apiClient.get(getFoodLink);
 	const data =  foodFormat(response?.data);
-  console.log("#12312", data)
   return data;
 });
 

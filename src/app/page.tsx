@@ -1,11 +1,9 @@
 import { Suspense } from "react";
 
 import ProductList from "@/src/components/products/ProductList";
-import ImageSlider from "@/src/components/common/ImageSlider";
 import SocialList from "@/src/components/socialMedia/SocialList";
 import GoogleMap from "../components/GoogleMap";
-
-import { MOCK_SLIDE_IMAGE } from "@/src/services/product-service";
+import HomeBanner from "../components/HomeBanner";
 
 function ProductSkeleton(){
   return (
@@ -27,12 +25,9 @@ function ProductSkeleton(){
 }
 
 export default function Home() {
-
   return (
     <>
-      <div className="p-0">
-        <ImageSlider images={MOCK_SLIDE_IMAGE} />
-      </div>
+      <HomeBanner />
 
       <div className="dark-mode">
         <div className="container py-5">

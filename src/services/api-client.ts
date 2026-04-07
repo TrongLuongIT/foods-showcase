@@ -37,7 +37,6 @@ apiClient.interceptors.request.use(async (config) => {
   if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-  
   return config;
 }, (error) => Promise.reject(error));
 
@@ -48,7 +47,7 @@ apiClient.interceptors.response.use(
     const errorResponse = error.response?.data;
     
     console.error("--- ❌ API ERROR ---");
-    console.error("URL:", error.config?.url);
+    console.error("URL:", API_URL,  error.config?.url);
     console.error("Status:", error.response?.status);
     console.error("Message:", errorResponse?.error?.message || error.message);
     console.error("--------------------");

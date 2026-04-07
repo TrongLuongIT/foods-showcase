@@ -80,3 +80,19 @@ export const foodFormat = (data: any[] = []): ProductInterface[] => {
 	}));
 	return foods;
 };
+
+export interface BannerInterface {
+  id: number;
+  src: string;
+  link?: string;
+  alt?: string;
+}
+
+export const bannerFormat = (data: any[] = []): BannerInterface[] => {
+	return data.map((item: any) => ({
+		id: item.id,
+		src: item.src?.formats?.large.url,
+		link: item.link || '',
+		alt: item.alt || ''
+	}));
+};
