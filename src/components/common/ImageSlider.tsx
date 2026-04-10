@@ -55,7 +55,7 @@ export default function ImageSlider({ images }: SliderProps) {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(timer); // Xóa timer khi unmount để tránh leak memory
   }, [paginate]);
  
@@ -88,7 +88,7 @@ export default function ImageSlider({ images }: SliderProps) {
             sizes="100vw"
             style={{ width: '100%', height: 'auto' }}
             className="object-fit-cover"
-            priority
+            priority={page === 0}
           />
         </motion.div>
       </AnimatePresence>
