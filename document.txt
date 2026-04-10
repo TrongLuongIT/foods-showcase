@@ -1,0 +1,30 @@
+Tính năng hiện tại: 
+1: Layout
+ - Header: sticky header trên desktop và navbar trên mobile
+ - HotLine: sticky bottom, nhưng ở phía trên của footer, chứa form liên hệ
+ - Footer:
+2: Trang chủ
+  - Banner
+  - List product
+  - List video tiktok
+  - Danh sách chi nhánh và google map
+3: Trang liên hệ
+  - Our story: slide hình ảnh về cửa hàng
+  - Giờ mở cửa và form liên hệ
+  - Lý do chọn: Danh sách hình với title và description
+
+Công nghệ áp dụng
+1: Lazy load image của nextjs
+2: skeleton component
+3: cache servcies khi call api của react
+4: unstable_cache của nextjs, đồng thời tạo router để reset cache khi backend thay đổi data 
+  - key name cache được đưa luôn vào tag của nextcache vì next hiện tại chỉ cung cấp xóa cache theo tags
+5: Gom throw error của api vào 1 chỗ, áp dụng sentry để log error trên server
+  ** chưa áp dụng ghi log error, chưa test error trên page
+6-wait: Ứng dụng AI chat vào website
+7-wait: dùng api tiktok lấy image và video mới nhất về
+8-wait: dùng api facebook lấy news feed về
+9-wait: hoàn thành data cho header và Footer
+10-wait: logo animation lăn hiện ra chữ
+
+

@@ -12,34 +12,43 @@ import {
 	BannerInterface,
 	bannerFormat,
 } from "../helper/dataFormat";
+import { CACHE_NAME } from "../helper/constantData";
+import { createCacheRequest } from "../helper/cacheRequest";
 
-export const getSocialMediaLinks = cache(async (): Promise<SocialMediaInterface[]> => {
-	try {
-		const response = await apiClient.get(getTikTokVideosLink);
-		return socialMediaLinksFormat(response?.data);
-	} catch (error) {
-		console.error("Error fetching social media links:", error);
-		throw error;
-	}
+/*
+ * Api ở đây được cache bởi next, và cả cache của react
+ */
+
+const getSocialMediaLinksWithCache = createCacheRequest(async (): Promise<SocialMediaInterface[]> => {
+	const response = await apiClient.get(getTikTokVideosLink);
+	return socialMediaLinksFormat(response?.data);
+},
+	[CACHE_NAME.SOCIAL_MEDIA.KEYS.LIST_TIKTOK],
+	{tags: [CACHE_NAME.SOCIAL_MEDIA.TAGS, CACHE_NAME.SOCIAL_MEDIA.KEYS.LIST_TIKTOK]}
+);
+export const getSocialMediaLinks = cache(async(): Promise<SocialMediaInterface[]> => {
+	return await getSocialMediaLinksWithCache();
 });
 
+const getBannerWithCache = createCacheRequest(async (): Promise<BannerInterface[]> => {
+	const response = await apiClient.get(getBannerLink);
+	return bannerFormat(response?.data);
+},
+[CACHE_NAME.BANNERS.KEYS.LIST],
+{tags: [CACHE_NAME.BANNERS.TAGS, CACHE_NAME.BANNERS.KEYS.LIST]}
+);
 export const getBanner = cache(async (): Promise<BannerInterface[]> => {
-	try {
-		const response = await apiClient.get(getBannerLink);
-		return bannerFormat(response?.data);
-	} catch (error) {
-		console.error("Error fetching banner:", error);
-		throw error;
-	}
+	return await getBannerWithCache();
 });
 
+const getConfigPageWithCache = createCacheRequest(async (): Promise<any> => {
+	const response = await apiClient.get(getGlobalDataLink);
+	return response?.data;
+},
+[CACHE_NAME.CONFIG.KEYS.PAGE],
+{tags: [CACHE_NAME.CONFIG.TAGS, CACHE_NAME.CONFIG.KEYS.PAGE]}
+);
 export const getConfigPage = cache(async (): Promise<any> => {
-	try {
-		const response = await apiClient.get(getGlobalDataLink);
-		console.log("Config page data:", response);
-		return response?.data;
-	} catch (error) {
-		console.error("Error fetching config page:", error);
-		throw error;
-	}
+	return await getConfigPageWithCache();
 });
+

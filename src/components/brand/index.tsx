@@ -3,9 +3,9 @@
 import { useState, useEffect, useRef } from 'react';
 
 import { useContactForm } from '@/src/hooks/contact-form-hook';
-import { HOTLINE_NUMBER, BOOTSTRAP_BREAKPOINTS } from '@/src/helper/config';
 import WavyText from '../common/WavyText';
 import BottomModal, { BottomModalRef } from '../common/BottomModal';
+import { BRAND_INFO, BOOTSTRAP_BREAKPOINTS } from '@/src/helper/constantData';
 
 export default function Brand() {
 
@@ -35,7 +35,7 @@ export default function Brand() {
           isDesktop ?(<>
             <div className="d-flex brand-hotline">
               <div className='pe-2'>Hotline</div>
-              <WavyText text={HOTLINE_NUMBER} />
+              <WavyText text={BRAND_INFO.CONTACT.PHONE} />
             </div>
             <form action={formAction} className="d-flex">
               <div className="py-3 px-1">
