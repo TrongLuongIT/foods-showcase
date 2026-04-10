@@ -55,9 +55,11 @@ export default function ImageSlider({ images }: SliderProps) {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 8000);
+    }, 5000);
     return () => clearInterval(timer); // Xóa timer khi unmount để tránh leak memory
-  }, [paginate]);
+  }, [page]);
+
+  console.log("3213131", page === 0, page);
  
   return (
     <div className="position-relative overflow-hidden w-100" style={{ height: "auto", aspectRatio: "18/9" }}>
@@ -74,21 +76,15 @@ export default function ImageSlider({ images }: SliderProps) {
             opacity: { duration: 0.5 }
           }}
           className="w-100 h-auto"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0
-          }}
         >
           <Image
             src={images[imageIndex].src}
             alt={images[imageIndex].alt || ''}
-            width={0}
-            height={0}
             sizes="100vw"
-            style={{ width: '100%', height: 'auto' }}
             className="object-fit-cover"
             priority={page === 0}
+            fill
+            loading={imageIndex === 0 ? undefined : "lazy"}
           />
         </motion.div>
       </AnimatePresence>
