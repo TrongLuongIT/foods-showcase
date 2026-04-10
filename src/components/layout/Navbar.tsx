@@ -60,7 +60,17 @@ export default function Navbar() {
           </div>
         )}
 
-        <FireLogo/>
+         <Image 
+            src={logoConstant.src} // Đặt logo vào đây
+            alt={logoConstant.alt}
+            className="img-fluid img-logo" 
+            style={{ objectFit: "contain", borderRadius: "50%" }}
+            width={logoConstant.width} // Tăng kích thước logo
+            height={logoConstant.height}
+            priority
+          />
+
+        {/* <FireLogo/> */}
 
         {isDesktop && (
           <ul className="d-flex h-100 align-items-center m-0 p-0 list-unstyled gap-4 fw-bold fs-5">
