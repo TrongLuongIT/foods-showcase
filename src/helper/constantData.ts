@@ -1,3 +1,33 @@
+interface BrandInfoInterface {
+  NAME: string;
+  SLOGAN: string;
+  FULL_NAME: string;
+  CONTACT: {
+    PHONE: string;
+    EMAIL: string;
+    ADDRESS: string;
+  };
+}
+
+export const BRAND_INFO: BrandInfoInterface = {
+  NAME: "Kokoria",
+  SLOGAN: "Created by TrongLuong",
+  FULL_NAME: "Kokoria - Fried Chicken",
+  CONTACT: {
+    PHONE: "070-879-6719",
+    EMAIL: "kokoria.sg@gmail.com",
+    ADDRESS: "207/33 ba tháng hai phường 11 , quận 10, Ho Chi Minh City, Vietnam"
+  },
+}
+
+export const BOOTSTRAP_BREAKPOINTS = {
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1400,
+};
+
 export interface LogoConstantInterface {
   src: string;
   alt: string;
@@ -11,6 +41,33 @@ export const logoConstant: LogoConstantInterface = {
   width: 50,
   height: 50,
 };
+
+export const CACHE_NAME = {
+  FOODS:{
+    TAGS: "foods",
+    KEYS: {
+      LIST: "food-list"
+    }
+  },
+  BANNERS: {
+    TAGS: "banners",
+    KEYS: {
+      LIST: "banner-list"
+    }
+  },
+  SOCIAL_MEDIA: {
+    TAGS: "social-media",
+    KEYS: {
+      LIST_TIKTOK: "list-tiktok"
+    }
+  },
+  CONFIG: {
+    TAGS: "config",
+    KEYS: {
+      PAGE: "config-page"
+    }
+  }
+}
 
 export const brandList = [
   {

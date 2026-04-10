@@ -1,14 +1,21 @@
 import apiClient from "./api-client";
 import { cache } from "react";
-
 import { ProductInterface, foodFormat } from "@/src/helper/dataFormat";
+import { createCacheRequest } from "../helper/cacheRequest";
+import { CACHE_NAME } from "../helper/constantData";
 import { getFoodLink } from "./api-link";
 
-export const getFoods = cache(async (): Promise<ProductInterface[]> => {
+const getFoodsWithCache = createCacheRequest(async (): Promise<ProductInterface[]> => {
 	const response = await apiClient.get(getFoodLink);
-	const data =  foodFormat(response?.data);
-  return data;
-});
+  console.log("getFoodsWithCache called");
+	return foodFormat(response?.data);
+},
+[CACHE_NAME.FOODS.KEYS.LIST],
+{tags: [CACHE_NAME.FOODS.TAGS, CACHE_NAME.FOODS.KEYS.LIST]}
+);
+export const getFoods = cache(async() => {
+  return await getFoodsWithCache();
+})
 
 interface MockImage {
   id: number;

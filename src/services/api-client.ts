@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { API_URL } from '@/src/helper/config';
+import { API_URL, isDevMode } from '@/src/helper/config';
 
 /**
  * Hàm lấy Token từ Server:
@@ -52,7 +52,12 @@ apiClient.interceptors.response.use(
     console.error("Message:", errorResponse?.error?.message || error.message);
     console.error("--------------------");
 
-    const errorMessage = error.response?.data || error.message;
+    let errorMessage = error.response?.data || error.message;
+    if (isDevMode) {
+      errorMessage += ` (Debug info: ${JSON.stringify(error.response)})`;
+    }else{
+      errorMessage = "Có lỗi xảy ra, vui lòng thử lại sau.";
+    }
     throw new Error(errorMessage);
   }
 );

@@ -8,6 +8,7 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { headerMenu } from "@/src/helper/dataFormat";
 import { logoConstant } from "@/src/helper/constantData";
+import FireLogo from "./logoAnimation/FireLogo";
 
 //Variants cho Drawer Animation (Mở từ trái sang phải)
 const drawerVariants: Variants = {
@@ -59,18 +60,7 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* LOGO */}
-        <Link href="/">
-          <Image 
-            src={logoConstant.src} // Đặt logo vào đây
-            alt={logoConstant.alt}
-            className="img-fluid img-logo" 
-            style={{ objectFit: "contain", borderRadius: "50%" }}
-            width={logoConstant.width} // Tăng kích thước logo
-            height={logoConstant.height}
-            priority
-          />
-        </Link>
+        <FireLogo/>
 
         {isDesktop && (
           <ul className="d-flex h-100 align-items-center m-0 p-0 list-unstyled gap-4 fw-bold fs-5">
