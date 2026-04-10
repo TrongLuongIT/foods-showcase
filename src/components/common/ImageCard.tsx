@@ -10,6 +10,7 @@ interface ImageCardProps {
   ratio?: string;
   children?: React.ReactNode;
   className?: string;
+  sizes?: string;
 }
 
 export default function ImageCard({
@@ -17,7 +18,8 @@ export default function ImageCard({
   description,
   ratio="1/1",
   children,
-  className
+  className,
+  sizes="200px"
 }: ImageCardProps) {
   return (
     <motion.div
@@ -36,6 +38,7 @@ export default function ImageCard({
           alt={alt}
           fill
           className={`object-fit-cover ` + className}
+          sizes={sizes}
         />
         {children || null}
       </div>
