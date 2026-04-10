@@ -56,4 +56,5 @@ export const Letter = styled(motion.span)`
   display: inline-block;
   will-change: transform, opacity;
   animation: ${lavaBurn} 1s infinite alternate;
+  opacity: 1;
 `;

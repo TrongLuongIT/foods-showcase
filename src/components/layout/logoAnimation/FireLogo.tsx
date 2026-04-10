@@ -83,6 +83,7 @@ export default function FireLogo() {
         <Image
           {...logoConstant}
           style={{ borderRadius: "50%" }}
+          priority={true}
         />
       </S.LogoContainer>
 
