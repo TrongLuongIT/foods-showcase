@@ -37,7 +37,6 @@ export default function ImageMarquee({ images, speed = 30 }: ImageMarqueeProps) 
               alt={`CCTV-${index}`}
               fill
               className="object-fit-cover"
-              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 300px"
             />
           </div>
         ))}
