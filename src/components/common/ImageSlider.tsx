@@ -84,7 +84,6 @@ export default function ImageSlider({ images }: SliderProps) {
             className="object-fit-cover"
             priority={page === 0}
             fill
-            loading={imageIndex === 0 ? undefined : "lazy"}
           />
         </motion.div>
       </AnimatePresence>
