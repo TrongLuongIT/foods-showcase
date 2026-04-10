@@ -49,7 +49,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center py-2 py-md-3">
+      <div className={`d-flex justify-content-between align-items-center ${!isDesktop ? 'overflow-hidden' : ''}`} style={{ height: '66px' }}>
 
         {!isDesktop && (
           <div onClick={toggleDrawer} className="p-2">
@@ -66,7 +66,7 @@ export default function Navbar() {
           <ul className="d-flex h-100 align-items-center m-0 p-0 list-unstyled gap-4 fw-bold fs-5">
             {headerMenu().map((link) => (
               <li key={link.name}>
-                <Link href={link.link} className="nav-link text-decoration-none p-2">
+                <Link href={link.link} className="nav-link text-decoration-none p-2 text-nowrap">
                   {link.name}
                 </Link>
               </li>

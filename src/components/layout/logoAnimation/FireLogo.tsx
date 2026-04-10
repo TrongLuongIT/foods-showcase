@@ -12,6 +12,12 @@ interface FireConfig {
   spinNumber: number;
   endSpinNumber: number;
   endTimePause: number;
+  brandName: {
+    fontSize: string;
+    lineHeight: number;
+    height: string;
+    color: string;
+  };
 }
 
 const FIRE_CONFIG: FireConfig = {
@@ -24,6 +30,12 @@ const FIRE_CONFIG: FireConfig = {
   endSpinNumber: 9*360, // tăng tốc độ xoay,
   endTimePause: 300,
   timeOut: 1500,
+  brandName: { 
+    fontSize: "45px",
+    lineHeight: 0.8,
+    height: "45px",
+    color: "#f9d852"
+  }
 };
 
 // --- Main Component ---
@@ -65,7 +77,7 @@ export default function FireLogo() {
   }, [logoX, logoRotate]);
 
   return (
-    <div className="d-flex justify-content-center align-items-center position-relative pointer">
+    <div className="d-flex justify-content-center align-items-center position-relative pointer py-2">
       {/* Icon Logo */}
       <S.LogoContainer style={{ x: logoX, rotate: logoRotate }}>
         <Image
@@ -75,7 +87,7 @@ export default function FireLogo() {
       </S.LogoContainer>
 
       {/* Tên Kokoria */}
-      <div className="text-uppercase fst-italic"  style={{ fontSize: "55px", lineHeight: 0.8, height: "45x", color: "#f9d852" }}>
+      <div className="text-uppercase fst-italic d-flex align-items-center" style={FIRE_CONFIG.brandName}>
         {letters.map((letter, index) => {
           // Tính toán mốc hiện chữ: Logo đi qua tới đâu, chữ hiện tới đó
           // Điều chỉnh mốc này dựa trên travelDistance mới

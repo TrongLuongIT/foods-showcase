@@ -57,12 +57,3 @@ export const Letter = styled(motion.span)`
   will-change: transform, opacity;
   animation: ${lavaBurn} 1s infinite alternate;
 `;
-
-export const BrandName = styled.div`
-  color: #f9d852;
-  font-size: 55px;
-  line-height: 0.8;
-  height: 48px;
-  text-transform: uppercase;
-  font-style: italic;
-`;
