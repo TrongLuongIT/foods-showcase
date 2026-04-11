@@ -26,7 +26,7 @@ Công nghệ áp dụng
 8-wait: dùng api facebook lấy news feed về
 9-wait: hoàn thành data cho header và Footer
 10: logo animation lăn hiện ra chữ
-11-wait: google map dùng image first
+11: google map dùng image first
 
 
 

@@ -26,14 +26,6 @@ const variants = {
   }),
 };
 
-const transition = {
-  x: { 
-    type: "tween", 
-    ease: "easeInOut", // Chạy chậm ở đầu và cuối, nhanh ở giữa
-    duration: 0.8      // Tăng lên 0.8s hoặc 1s để thấy rõ hiệu ứng trượt
-  },
-  opacity: { duration: 0.8 }
-}
 
 export default function ImageSlider({ images }: SliderProps) {
   const [[page, direction], setPage] = useState([0, 0]);
@@ -55,7 +47,7 @@ export default function ImageSlider({ images }: SliderProps) {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 8000);
+    }, 5000);
     return () => clearInterval(timer); // Xóa timer khi unmount để tránh leak memory
   }, [page]);
  
@@ -79,7 +71,7 @@ export default function ImageSlider({ images }: SliderProps) {
           <Image
             src={images[imageIndex].src}
             alt={images[imageIndex].alt || ''}
-            sizes="100vw"
+            sizes="(max-width: 768px) 150px, 100vw"
             className="object-fit-cover"
             priority={page === 0}
             fill
