@@ -25,11 +25,11 @@ const FIRE_CONFIG: FireConfig = {
     duration: 1.5,
     ease: "easeOut",
   },
-  travelDistance: 280, // Khoảng cách lăn,
+  travelDistance: 230, // Khoảng cách lăn,
   spinNumber: 3*360, // số vòng xoay,
   endSpinNumber: 9*360, // tăng tốc độ xoay,
   endTimePause: 300,
-  timeOut: 1500,
+  timeOut: 2000,
   brandName: { 
     fontSize: "45px",
     lineHeight: 0.8,
@@ -77,7 +77,7 @@ export default function FireLogo() {
   }, [logoX, logoRotate]);
 
   return (
-    <div className="d-flex justify-content-center align-items-center position-relative pointer py-2">
+    <div className="d-flex justify-content-center align-items-center position-relative pointer py-2 bootstrap-padding">
       {/* Icon Logo */}
       <S.LogoContainer style={{ x: logoX, rotate: logoRotate }}>
         <Image
@@ -92,7 +92,7 @@ export default function FireLogo() {
         {letters.map((letter, index) => {
           // Tính toán mốc hiện chữ: Logo đi qua tới đâu, chữ hiện tới đó
           // Điều chỉnh mốc này dựa trên travelDistance mới
-          const start = (index * 38); 
+          const start = (index * 25); 
           const end = start + 40;
 
           const opacity = useTransform(logoX, [start, end], [0, 1]);

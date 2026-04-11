@@ -51,18 +51,16 @@ export default function ImageSlider({ images }: SliderProps) {
     setPage([index, newDirection]);
   };
 
-  // Tự động chạy (Auto-play) mỗi 5 giây
+  // Tự động chạy (Auto-play)
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(timer); // Xóa timer khi unmount để tránh leak memory
   }, [page]);
-
-  console.log("3213131", page === 0, page);
  
   return (
-    <div className="position-relative overflow-hidden w-100" style={{ height: "auto", aspectRatio: "18/9" }}>
+    <div className="position-relative overflow-hidden w-100">
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
         <motion.div
           key={page}
@@ -75,7 +73,8 @@ export default function ImageSlider({ images }: SliderProps) {
             x: { type: "spring", stiffness: 80, damping: 25 }, 
             opacity: { duration: 0.5 }
           }}
-          className="w-100 h-auto"
+          className="position-relative"
+          style={{ height: "auto", aspectRatio: "18/9" }}
         >
           <Image
             src={images[imageIndex].src}

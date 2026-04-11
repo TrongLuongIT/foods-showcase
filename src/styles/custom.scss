@@ -66,7 +66,6 @@ body{
 /* END COLOR LAYOUT */
 
 
-
 .title-brand-1 {
   @extend .display-1;
 }
@@ -177,4 +176,9 @@ body{
 
 [aria-expanded="true"] .arrow-collapse {
   transform: rotate(-135deg); /* mũi tên lên */
+}
+
+.bootstrap-padding {
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  padding-right: calc(var(--bs-gutter-x) * .5);
 }

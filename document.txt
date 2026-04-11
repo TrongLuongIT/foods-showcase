@@ -25,6 +25,8 @@ Công nghệ áp dụng
 7-wait: dùng api tiktok lấy image và video mới nhất về
 8-wait: dùng api facebook lấy news feed về
 9-wait: hoàn thành data cho header và Footer
-10-wait: logo animation lăn hiện ra chữ
+10: logo animation lăn hiện ra chữ
+11-wait: google map dùng image first
+
 
 

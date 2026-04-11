@@ -54,7 +54,7 @@ export default function Navbar() {
         {!isDesktop && (
           <div onClick={toggleDrawer} className="p-2">
             <FontAwesomeIcon 
-              icon={isDrawerOpen ? faXmark : faBars} 
+              icon={isDrawerOpen ? faXmark : faBars}
               className="fs-1 text-white" 
             />
           </div>
