@@ -52,7 +52,7 @@ export default function ImageSlider({ images }: SliderProps) {
   }, [page]);
  
   return (
-    <div className="position-relative overflow-hidden w-100">
+    <div className="position-relative overflow-hidden  w-100">
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
         <motion.div
           key={page}
@@ -65,7 +65,7 @@ export default function ImageSlider({ images }: SliderProps) {
             x: { type: "spring", stiffness: 80, damping: 25 }, 
             opacity: { duration: 0.5 }
           }}
-          className="position-relative"
+          className="position-relative bg-light"
           style={{ height: "auto", aspectRatio: "18/9" }}
         >
           <Image
@@ -73,7 +73,8 @@ export default function ImageSlider({ images }: SliderProps) {
             alt={images[imageIndex].alt || ''}
             sizes="(max-width: 768px) 150px, 100vw"
             className="object-fit-cover"
-            priority={page === 0}
+            priority={imageIndex === 0}
+            fetchPriority={imageIndex === 0 ? "high" : "low"}
             fill
           />
         </motion.div>
