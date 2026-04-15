@@ -1,6 +1,6 @@
 
 import ImageMarquee from "@/src/components/common/ImageMarquee";
-import { MOCK_BRANCH_IMAGES } from  "@/src/services/product-service";
+import { MOCK_BRANCH_IMAGES } from  "@/src/helper/mockData";
 
 export default function BranchStory() {
   return (

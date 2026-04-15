@@ -1,13 +1,4 @@
-/*
- * header menu fs-3
- * category fs-4
- * title fs-5
- * text fs-6
- * more information fs-7
- */
-
-import { MEDIA_URL } from '@/src/helper/config';
-
+import MOCK_DATA from './mockData';
 export interface FooterCollectionInterface {
 	title: string;
 	rows: string[];
@@ -56,6 +47,10 @@ export interface SocialMediaInterface {
 }
 
 export const socialMediaLinksFormat = (data: any[] = []): SocialMediaInterface[] => {
+
+	// mock data
+	if(data.length === 0) return MOCK_DATA.TIKTOK_VIDEOS;
+
 	const videos = data.map((item: any) => ({
 		link: item.video_link,
 		thumbnail: item.thumbnail,
@@ -72,6 +67,9 @@ export interface ProductInterface {
 }
 
 export const foodFormat = (data: any[] = []): ProductInterface[] => {
+
+	if(data.length === 0) return MOCK_DATA.FOODS;
+
 	const foods = data.map((item: any) => ({
 		id: item.id,
 		name: item.title,
@@ -89,6 +87,9 @@ export interface BannerInterface {
 }
 
 export const bannerFormat = (data: any[] = []): BannerInterface[] => {
+
+	if(data.length === 0) return MOCK_DATA.BANNER;
+
 	return data.map((item: any) => ({
 		id: item.id,
 		src: item.src?.formats?.large.url,
@@ -96,3 +97,4 @@ export const bannerFormat = (data: any[] = []): BannerInterface[] => {
 		alt: item.alt || ''
 	}));
 };
+

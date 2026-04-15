@@ -1,6 +1,6 @@
 "use client";
 
-import { MOCK_IMAGES } from "@/src/services/product-service";
+import { MOCK_IMAGES } from "@/src/helper/mockData";
 import ImageCard from "@/src/components/common/ImageCard";
 
 

@@ -20,8 +20,13 @@ import { createCacheRequest } from "../helper/cacheRequest";
  */
 
 const getSocialMediaLinksWithCache = createCacheRequest(async (): Promise<SocialMediaInterface[]> => {
-	const response = await apiClient.get(getTikTokVideosLink);
-	return socialMediaLinksFormat(response?.data);
+	try {
+		const response = await apiClient.get(getTikTokVideosLink);
+		return socialMediaLinksFormat(response?.data);
+	} catch (error) {
+		console.error("Error fetching social media links:", error);
+		return socialMediaLinksFormat();
+	}
 },
 	[CACHE_NAME.SOCIAL_MEDIA.KEYS.LIST_TIKTOK],
 	{tags: [CACHE_NAME.SOCIAL_MEDIA.TAGS, CACHE_NAME.SOCIAL_MEDIA.KEYS.LIST_TIKTOK]}
@@ -30,9 +35,15 @@ export const getSocialMediaLinks = cache(async(): Promise<SocialMediaInterface[]
 	return await getSocialMediaLinksWithCache();
 });
 
+// get banner
 const getBannerWithCache = createCacheRequest(async (): Promise<BannerInterface[]> => {
-	const response = await apiClient.get(getBannerLink);
-	return bannerFormat(response?.data);
+	try {
+		const response = await apiClient.get(getBannerLink);
+		return bannerFormat(response?.data);
+	} catch (error) {
+		console.error("Error fetching banners:", error);
+		return bannerFormat();
+	}
 },
 [CACHE_NAME.BANNERS.KEYS.LIST],
 {tags: [CACHE_NAME.BANNERS.TAGS, CACHE_NAME.BANNERS.KEYS.LIST]}
@@ -41,6 +52,7 @@ export const getBanner = cache(async (): Promise<BannerInterface[]> => {
 	return await getBannerWithCache();
 });
 
+// get config page, apply for header, footer - todo
 const getConfigPageWithCache = createCacheRequest(async (): Promise<any> => {
 	const response = await apiClient.get(getGlobalDataLink);
 	return response?.data;
