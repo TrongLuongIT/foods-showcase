@@ -14,7 +14,7 @@ Sensitive business logic and APIs have been removed or replaced with mock data.
 * Next.js 15 (App Router, Turbopack)
 * React 19 + TypeScript
 * Bootstrap, SCSS, Styled Components
-* Framer Motion, Swiper
+* Framer Motion
 * Axios, React Player
 
 ## Features
