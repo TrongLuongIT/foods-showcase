@@ -16,17 +16,18 @@ Tính năng hiện tại:
 Công nghệ áp dụng
 1: Lazy load image của nextjs
 2: skeleton component
-3: cache servcies khi call api của react
+3: cache servcies khi call api của react, unstable_cache của nextjs, hiện tại không giới hạn giờ, chỉ khi BE thay đổi data mới xóa cache
+ -wait: thêm xóa cache all manual, tự động xóa cache sau 1 khoảng thời gian
 4: unstable_cache của nextjs, đồng thời tạo router để reset cache khi backend thay đổi data 
   - key name cache được đưa luôn vào tag của nextcache vì next hiện tại chỉ cung cấp xóa cache theo tags
 5: Gom throw error của api vào 1 chỗ, áp dụng sentry để log error trên server
   ** chưa áp dụng ghi log error, chưa test error trên page
 6-wait: Ứng dụng AI chat vào website
-7-wait: dùng api tiktok lấy image và video mới nhất về
+7: dùng api tiktok lấy thumbnail về (xử lý bên BE strapi)
 8-wait: dùng api facebook lấy news feed về
 9-wait: hoàn thành data cho header và Footer
 10: logo animation lăn hiện ra chữ
 11: google map dùng image first
-
-
+12-wait: performance website trên 90 mobile, 99 desktop
+13-wait: test and anti ddos website
 

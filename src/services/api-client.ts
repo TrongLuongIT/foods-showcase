@@ -46,7 +46,7 @@ apiClient.interceptors.response.use(
   (error) => {
     const errorResponse = error.response?.data;
     
-    console.error("--- ❌ API ERROR ---");
+    console.error("--- API ERROR ---");
     console.error("URL:", API_URL,  error.config?.url);
     console.error("Status:", error.response?.status);
     console.error("Message:", errorResponse?.error?.message || error.message);
@@ -59,6 +59,22 @@ apiClient.interceptors.response.use(
       errorMessage = "Có lỗi xảy ra, vui lòng thử lại sau.";
     }
     throw new Error(errorMessage);
+  }
+);
+
+export const thirdPartyClient: AxiosInstance = axios.create({
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Response interceptor đơn giản để lấy thẳng data
+thirdPartyClient.interceptors.response.use(
+  (response) => response.data,
+  (error) => {
+    console.error("Third Party API Error:", error.message);
+    return Promise.reject(error);
   }
 );
 
