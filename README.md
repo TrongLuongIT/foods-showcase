@@ -1,5 +1,8 @@
 # Kokoria – Next.js Showcase
 
+## Performance
+![PageSpeed Home page](public/images/pagespeed.png)
+
 ## Overview
 A sanitized demo version of a real-world restaurant website built with Next.js 15 and React 19.
 
@@ -45,32 +48,23 @@ src/
  |-- actions/
  |-- app/
  |-- components/
- |-- holper/
+ |-- helper/
  |-- hooks/
  |-- services/
  |-- styles/
  |-- types/
 
----
-
 ## Run locally
-
 ```bash
 npm install
 npm run dev
 ```
 
----
-
 ## Future Improvements
-
 * AI chatbot integration
 * Facebook feed integration
 * Auto cache invalidation
 * Performance optimization (90+ mobile target)
 
----
-
 ## Note
-
 This repository is a demo version for showcase purposes only.
