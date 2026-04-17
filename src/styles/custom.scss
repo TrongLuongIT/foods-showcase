@@ -95,8 +95,8 @@ body{
   align-items: center;
   font-weight: bold;
 
-  @media screen and (max-width: 1024px) {
-    font-size: 18px;
+  @include media-breakpoint-down(lg) {
+    font-size: 28px;
   }
 }
 
@@ -127,10 +127,15 @@ body{
 
 .dot-point{
   width: 20px;
-  height: 20px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   cursor: pointer;
   background-color: white;
+
+  @include media-breakpoint-down(lg) {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .pointer {
@@ -148,7 +153,7 @@ body{
   text-transform: uppercase;
   text-align: center;
 
-  @media (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     font-size: 28px;
   }
 }
@@ -181,4 +186,19 @@ body{
 .bootstrap-padding {
   padding-left: calc(var(--bs-gutter-x) * .5);
   padding-right: calc(var(--bs-gutter-x) * .5);
+}
+
+// limit text row
+@for $i from 1 through 5 {
+  .text-#{$i}-row {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* Standard property for compatibility */
+    line-clamp: #{$i};
+    -webkit-line-clamp: #{$i};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5em; 
+    max-height: calc(1.5em * #{$i}); 
+  }
 }

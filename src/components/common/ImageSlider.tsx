@@ -80,12 +80,12 @@ export default function ImageSlider({ images }: SliderProps) {
         </motion.div>
       </AnimatePresence>
 
-      <div className="position-absolute bottom-0 start-50 translate-middle-x mb-4 d-flex z-3">
+      <div className="position-absolute bottom-0 start-50 translate-middle-x mb-4 d-flex z-1">
         {images.map((_, index) => (
           <div
             key={index}
             onClick={() => goToPage(index)}
-            className={`mx-2 rounded-circle transition-all dot-point ${
+            className={`mx-1 rounded-circle transition-all dot-point ${
               index === imageIndex ? "bg-danger border-0" : "opacity-50"
             }`}
             aria-label={`Go to slide ${index + 1}`}

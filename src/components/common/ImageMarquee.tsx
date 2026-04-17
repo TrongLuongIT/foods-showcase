@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MockBranchImage } from "@/src/services/product-service";
+import { OurStoryInterface } from "@/src/helper/dataFormat";
 
 interface ImageMarqueeProps {
-  images: MockBranchImage[],
+  images: OurStoryInterface[],
   speed?: number; // Tốc độ chạy (giây), số càng lớn càng chậm
 }
 
@@ -37,6 +37,7 @@ export default function ImageMarquee({ images, speed = 30 }: ImageMarqueeProps) 
               alt={`CCTV-${index}`}
               fill
               className="object-fit-cover"
+              sizes="(max-width: 768px) 50vw, 20vw"
             />
           </div>
         ))}

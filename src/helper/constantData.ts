@@ -14,7 +14,7 @@ export const BRAND_INFO: BrandInfoInterface = {
   SLOGAN: "Created by TrongLuong",
   FULL_NAME: "Kokoria - Fried Chicken",
   CONTACT: {
-    PHONE: "070-879-6719",
+    PHONE: "0708796719",
     EMAIL: "kokoria.sg@gmail.com",
     ADDRESS: "207/33 ba tháng hai phường 11 , quận 10, Ho Chi Minh City, Vietnam"
   },
@@ -61,11 +61,14 @@ export const CACHE_NAME = {
       LIST_TIKTOK: "list-tiktok"
     }
   },
-  CONFIG: {
-    TAGS: "config",
-    KEYS: {
-      PAGE: "config-page"
-    }
+  GLOBAL_CONFIG: {
+    TAGS: "global",
+  },
+  REASONS: {
+    TAGS: "reasons"
+  },
+  OUR_STORY: {
+    TAGS: "our-story"
   }
 }
 

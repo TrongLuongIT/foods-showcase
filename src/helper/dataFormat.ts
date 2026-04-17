@@ -1,52 +1,45 @@
-/*
- * header menu fs-3
- * category fs-4
- * title fs-5
- * text fs-6
- * more information fs-7
- */
-
-import { MEDIA_URL } from '@/src/helper/config';
+import * as MOCK_DATA from "./mockData"
 
 export interface FooterCollectionInterface {
 	title: string;
-	rows: string[];
+	rows: MenuInterface[];
 }
 
-export const footerCollections = (data:any[] = []): FooterCollectionInterface[] => {
-	return [
-		{
-			'title': 'Kokoria - món ngon chuẩn Hàn',
-			'rows': [
-				"Địa chỉ: 207/33 Ba tháng hai, Phường 11, Quận 10",
-				"Các thông tin khác",
-				"Phương thức liên hệ"
-			],
-		},
-		{
-			'title': 'Thông tin',
-			'rows': [
-				"Về chúng tôi",
-				"Chính sách bảo mật",
-				"Điều khoản dịch vụ",
-				"Hỗ trợ khách hàng"
-			],
-		}
-	]
+export const footerFormat = (data:any[] = []): FooterCollectionInterface[] => {
+	return data.map(item => ({
+		'title': item.title,
+		'rows': item.rows.map((row: any) => ({
+			name: row.name,
+			link: row.link || ''
+		}))
+	}));
 }
 
-export interface HeaderMenuInterface {
+export interface MenuInterface {
 	name: string;
 	link: string;
 }
 
-export const headerMenu = (data: any[] = []): HeaderMenuInterface[] => {
-	return [
-		{ name: 'Trang chủ', link: '/' },
-		// { name: 'Sản phẩm', link: '/products' },
-		// { name: 'Giới thiệu', link: '/about' },
-		{ name: 'Liên hệ', link: '/contact' }
-	]
+export const headerMenuFormat = (data: any[] = []): MenuInterface[] => {
+	return data.map(item => ({
+		name: item.name,
+		link: item.link || ''
+	}));
+}
+
+interface GlobalDataInterface {
+	header: MenuInterface[];
+	footer: FooterCollectionInterface[];
+}
+
+export const globalDataFormat = (data: any = {}): GlobalDataInterface => {
+
+	if(!data || Object.keys(data).length === 0) return MOCK_DATA.GLOBAL_DATA;
+
+	return {
+		header: headerMenuFormat(data?.header || []),
+		footer: footerFormat(data?.footer || [])
+	}
 }
 
 export interface SocialMediaInterface {
@@ -56,6 +49,9 @@ export interface SocialMediaInterface {
 }
 
 export const socialMediaLinksFormat = (data: any[] = []): SocialMediaInterface[] => {
+
+	if(!data || data.length === 0) return MOCK_DATA.TIKTOK_VIDEOS;
+
 	const videos = data.map((item: any) => ({
 		link: item.video_link,
 		thumbnail: item.thumbnail,
@@ -72,6 +68,9 @@ export interface ProductInterface {
 }
 
 export const foodFormat = (data: any[] = []): ProductInterface[] => {
+
+	if(!data || data.length === 0) return MOCK_DATA.FOODS;
+
 	const foods = data.map((item: any) => ({
 		id: item.id,
 		name: item.title,
@@ -89,10 +88,49 @@ export interface BannerInterface {
 }
 
 export const bannerFormat = (data: any[] = []): BannerInterface[] => {
+
+	if(!data || data.length === 0) return MOCK_DATA.BANNER;
+
 	return data.map((item: any) => ({
 		id: item.id,
 		src: item.src?.formats?.large.url,
 		link: item.link || '',
+		alt: item.alt || ''
+	}));
+};
+
+export interface ReasonInterface {
+	id: number | string;
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+}
+
+export const reasonFormat = (data: any[] = []): ReasonInterface[] => {
+
+	if(!data || data.length === 0) return MOCK_DATA.REASON;
+
+	return data.map((item: any) => ({
+		id: item.id,
+		src: item.src?.formats?.small.url,
+		alt: item.alt || '',
+		title: item.title || '',
+		description: item.description || ''
+	}));
+};
+
+export interface OurStoryInterface {
+  src: string;
+  alt: string;
+}
+
+export const ourStoryFormat = (data: any[] = []): OurStoryInterface[] => {
+
+	if(!data || data.length === 0) return MOCK_DATA.OUR_STORY;
+
+	return data.map((item: any) => ({
+		src: item.formats?.small.url || '',
 		alt: item.alt || ''
 	}));
 };

@@ -30,7 +30,7 @@ export default function Brand() {
 
   return (
     <div className="container-fluid sticky-brand">
-      <div className="container px-0 px-sm-3 py-3 py-md-0 d-flex justify-content-between">
+      <div className="container px-0 px-sm-3 py-3 py-lg-0 d-flex justify-content-between">
         {
           isDesktop ?(<>
             <div className="d-flex brand-hotline">
