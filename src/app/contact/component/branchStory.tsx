@@ -1,8 +1,9 @@
 
 import ImageMarquee from "@/src/components/common/ImageMarquee";
-import { MOCK_BRANCH_IMAGES } from  "@/src/helper/mockData";
+import { getOurStoryData } from  "@/src/services/contact-service";
 
-export default function BranchStory() {
+export default async function BranchStory() {
+  const ourStoryData = await getOurStoryData();
   return (
     <div className="dark-mode py-5">
       <div className="title-category">
@@ -11,7 +12,7 @@ export default function BranchStory() {
         Chúng tôi cung cấp những gì ?<br/>
       </div>
       <div className="text-white text-center pb-5">Hình ảnh cửa hàng</div>
-      <ImageMarquee images={MOCK_BRANCH_IMAGES}/>
+      <ImageMarquee images={ourStoryData}/>
     </div>
   );
 }

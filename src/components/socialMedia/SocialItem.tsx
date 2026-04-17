@@ -8,7 +8,6 @@ import ImageCard from "../common/ImageCard";
 
 const SocialItem = memo(({ social, onClick }: { social: SocialMediaInterface; onClick: (url: string) => void }) => {
 
-  console.log("1111", social.id);
   return (
     <div className="col-6 col-md-3 mt-3 pointer" onClick={() => onClick(social.link)}>
       <ImageCard 

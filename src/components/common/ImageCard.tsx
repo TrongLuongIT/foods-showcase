@@ -44,7 +44,7 @@ export default function ImageCard({
       </div>
       <div>
         <h3 className="text-truncate mt-2">{title || ''}</h3>
-        <p>{description || ''}</p>
+        <div className="text-2-row">{description || ''}</div>
       </div>
     </motion.div>
   );

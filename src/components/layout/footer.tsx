@@ -1,16 +1,15 @@
 "use client";
 import styled from 'styled-components';
 
-import { footerCollections } from "@/src/helper/dataFormat";
+import { FooterCollectionInterface } from "@/src/helper/dataFormat";
 
-
-export default function Footer(){
+export default function Footer({ data }: { data: FooterCollectionInterface[] }) {
 	return (
 		<FooterStyle>
       <div className="container p-0">
         <div className="row m-0">
           {
-            footerCollections().map((collection, index) => (
+            data.map((collection, index) => (
               <div key={index} className="div-box p-3 col-md-6">
 
                 {/* MOBILE VERSION */}
@@ -21,7 +20,7 @@ export default function Footer(){
                 <div className="collapse" id={`footerMenu${index}`}>
                   {
                     collection.rows.map((row, rowIndex) => (
-                      <div key={rowIndex} className="p-2 pb-0">{row}</div>
+                      <div key={rowIndex} className="p-2 pb-0">{row.name}</div>
                     ))
                   }
                 </div>
@@ -30,7 +29,7 @@ export default function Footer(){
                 <div className="d-none d-md-block">
                   {
                     collection.rows.map((row, rowIndex) => (
-                      <div key={rowIndex} className="p-2 pb-0">{row}</div>
+                      <div key={rowIndex} className="p-2 pb-0">{row.name}</div>
                     ))
                   }
                 </div>

@@ -61,11 +61,14 @@ export const CACHE_NAME = {
       LIST_TIKTOK: "list-tiktok"
     }
   },
-  CONFIG: {
-    TAGS: "config",
-    KEYS: {
-      PAGE: "config-page"
-    }
+  GLOBAL_CONFIG: {
+    TAGS: "global",
+  },
+  REASONS: {
+    TAGS: "reasons"
+  },
+  OUR_STORY: {
+    TAGS: "our-story"
   }
 }
 

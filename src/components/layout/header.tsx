@@ -1,12 +1,12 @@
 "use client";
-// import { useState } from "react";
 import Navbar from "./Navbar";
+import {MenuInterface} from "@/src/helper/dataFormat";
 
-export default function Header() {
+export default function Header({ data }: { data:MenuInterface[] }) {
   return (
     <header className="container-fluid px-0 sticky-header">
       <div className="container px-0">
-        <Navbar />
+        <Navbar data={data} />
       </div>
     </header>
   );

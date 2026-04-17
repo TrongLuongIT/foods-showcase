@@ -7,8 +7,8 @@ import { getFoodLink } from "./api-link";
 
 const getFoodsWithCache = createCacheRequest(async (): Promise<ProductInterface[]> => {
   try{
-    const response = await apiClient.get(getFoodLink);
-    return foodFormat(response?.data);
+	const response = await apiClient.get(getFoodLink);
+	return foodFormat(response?.data);
   }catch(error){
     console.error("Error fetching foods:", error);
     return foodFormat();

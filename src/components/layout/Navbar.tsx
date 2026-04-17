@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import { headerMenu } from "@/src/helper/dataFormat";
+import {MenuInterface} from "@/src/helper/dataFormat";
 import { logoConstant } from "@/src/helper/constantData";
 import FireLogo from "./logoAnimation/FireLogo";
 
@@ -30,7 +30,7 @@ const backdropVariants = {
   exit: { opacity: 0 },
 };
 
-export default function Navbar() {
+export default function Navbar({ data }: { data: MenuInterface[] }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);
 
@@ -60,24 +60,14 @@ export default function Navbar() {
           </div>
         )}
 
-         {/* <Image 
-            src={logoConstant.src} // Đặt logo vào đây
-            alt={logoConstant.alt}
-            className="img-fluid img-logo" 
-            style={{ objectFit: "contain", borderRadius: "50%" }}
-            width={logoConstant.width} // Tăng kích thước logo
-            height={logoConstant.height}
-            priority
-          /> */}
-
         <FireLogo/>
 
         {isDesktop && (
           <ul className="d-flex h-100 align-items-center m-0 p-0 list-unstyled gap-4 fw-bold fs-5">
-            {headerMenu().map((link) => (
-              <li key={link.name}>
-                <Link href={link.link} className="nav-link text-decoration-none p-2 text-nowrap">
-                  {link.name}
+            {data.map((menu) => (
+              <li key={menu.name}>
+                <Link href={menu.link} className="nav-link text-decoration-none p-2 text-nowrap">
+                  {menu.name}
                 </Link>
               </li>
             ))}
@@ -132,10 +122,10 @@ export default function Navbar() {
 
                 {/* Drawer Body (Menu Items - Thêm accordion sau nếu cần) */}
                 <ul className="list-unstyled">
-                  {headerMenu().map((link) => (
-                    <li key={link.name} className="drawer-item p-0 m-0 w-100 border-bottom">
-                      <Link href={link.link} className="d-block px-4 py-3 text-black text-decoration-none fw-bold fs-5">
-                        {link.name}
+                  {data.map((menu) => (
+                    <li key={menu.name} className="drawer-item p-0 m-0 w-100 border-bottom">
+                      <Link href={menu.link} className="d-block px-4 py-3 text-black text-decoration-none fw-bold fs-5">
+                        {menu.name}
                       </Link>
                     </li>
                   ))}

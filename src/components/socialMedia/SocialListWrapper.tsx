@@ -9,8 +9,6 @@ interface TiktokModalProps {
   socialList: SocialMediaInterface[];
 }
 
-console.log("init wrapper");
-
 export default function SocialListWrapper({ socialList }: TiktokModalProps) {
 
   const [selectedLink, setSelectedLink] = useState<string | null>(null);
@@ -20,10 +18,8 @@ export default function SocialListWrapper({ socialList }: TiktokModalProps) {
   }, []);
 
   useEffect(() => {
-    console.log("socialList changed:", socialList);
     
   }, [socialList]);
-  console.log("rrrrrrrrr", selectedLink, socialList);
 
   const onCloseModal = useCallback(() => setSelectedLink(null), []);
 

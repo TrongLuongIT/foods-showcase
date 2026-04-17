@@ -1,4 +1,6 @@
-const TIKTOK_VIDEOS = [
+import { link } from "fs";
+
+export const TIKTOK_VIDEOS = [
   {
     id: "tt-001",
     link: "https://www.tiktok.com/@kokoria.chicken/video/7486328584022265096",
@@ -21,7 +23,7 @@ const TIKTOK_VIDEOS = [
   }
 ];
 
-const FOODS = [
+export const FOODS = [
   {
     id: 101,
     name: "Gà Rán Sốt Cay Kokoria",
@@ -72,7 +74,7 @@ const FOODS = [
   }
 ];
 
-const BANNER = [
+export const BANNER = [
   {
     id: 1,
     src: "/uploads/images/koko-2.jpg",
@@ -99,15 +101,7 @@ const BANNER = [
   }
 ];
 
-interface MockImage {
-  id: number;
-  src: string;
-  alt: string;
-  title: string;
-  description: string;
-}
-
-export const MOCK_IMAGES: MockImage[] = [
+export const MOCK_IMAGES = [
   {
     "id": 1,
     "src": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&q=80&w=1000",
@@ -131,13 +125,34 @@ export const MOCK_IMAGES: MockImage[] = [
   }
 ];
 
-export interface MockBranchImage {
-  id: number;
-  src: string;
-  alt: string;
+
+export const GLOBAL_DATA = {
+  'footer': [
+		{
+			'title': 'Kokoria - món ngon chuẩn Hàn',
+			'rows': [
+				{name: "Địa chỉ: 207/33 Ba tháng hai, Phường 11, Quận 10", link: "/"},
+				{name: "Các thông tin khác", link: "/"},
+				{name: "Phương thức liên hệ", link: "/"}
+			],
+		},
+		{
+			'title': 'Thông tin',
+			'rows': [
+				{name: "Về chúng tôi", link: "/about"},
+				{name: "Chính sách bảo mật", link: "/privacy"},
+				{name: "Điều khoản dịch vụ", link: "/terms"},
+				{name: "Hỗ trợ khách hàng", link: "/support"}
+			],
+		}
+	],
+  'header': [
+    { name: 'Trang chủ', link: '/' },
+    { name: 'Liên hệ', link: '/contact' }
+  ]
 }
 
-export const MOCK_BRANCH_IMAGES: MockBranchImage[] =[
+export const OUR_STORY =[
   {
     id: 1,
     src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800",
@@ -195,8 +210,27 @@ export const MOCK_BRANCH_IMAGES: MockBranchImage[] =[
   }
 ];
 
-export default {
-  TIKTOK_VIDEOS,
-  FOODS,
-  BANNER
-};
+
+export const REASON = [
+  {
+    "id": 1,
+    "src": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&q=80&w=1000",
+    "alt": "Không gian quán rượu Kokoria đông khách thể hiện doanh thu ổn định",
+    "title": "Doanh thu ổn định và lợi nhuận cao",
+    "description": "Bí quyết vận hành lâu năm giúp đảm bảo hiệu quả kinh doanh và lợi nhuận vượt trội."
+  },
+  {
+    "id": 2,
+    "src": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&q=80&w=1000",
+    "alt": "Món chân gà nướng than hoa đặc trưng của Kokoria ăn kèm sốt đặc biệt",
+    "title": "Thực đơn Steady Menu gây nghiện",
+    "description": "Những món ăn mang hương vị độc đáo, chinh phục khẩu vị của mọi lứa tuổi."
+  },
+  {
+    "id": 3,
+    "src": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&q=80&w=1000",
+    "alt": "Thiết kế nội thất quán Kokoria phong cách Pocha hiện đại và sành điệu",
+    "title": "Nội thất không lỗi mốt",
+    "description": "Sự kết hợp giữa phong cách Retro và xu hướng hiện đại, tạo không gian thư giãn lý tưởng."
+  }
+];
