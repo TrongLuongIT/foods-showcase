@@ -1,7 +1,7 @@
-import ContactForm from "./component/contactForm";
-import StoreInfor from "./component/storeInfor";
-import BrandReason from "./component/brandReason";
-import BranchStory from "./component/branchStory";
+import ContactForm from "./components/ContactForm";
+import StoreInfor from "./components/StoreInfor";
+import BrandReason from "./components/BrandReason";
+import BranchStory from "./components/BranchStory";
 
 export default function ContactPage() {
   return (

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Toaster } from 'sonner';
 
 import ClientOnly from "@/src/components/layout/clientOny";
-import Header from "@/src/components/layout/header";
-import Footer from "@/src/components/layout/footer";
+import Header from "@/src/components/layout/Header";
+import Footer from "@/src/components/layout/Footer";
 import Brand from "@/src/components/brand";
 import { BRAND_INFO } from "../helper/constantData";
 import { getGlobalData } from "../services/global-service";

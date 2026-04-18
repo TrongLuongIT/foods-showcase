@@ -1,5 +1,5 @@
 import { getReasonData } from "@/src/services/contact-service";
-import BrandReasonClient from "./brandReasonClient";
+import BrandReasonClient from "./BrandReasonClient";
 
 export default async function BrandReason() {
   const reasonData = await getReasonData();
