@@ -8,9 +8,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     domains: [
-      "https://picsum.photos",
       "picsum.photos",
-      "https://images.unsplash.com",
       "images.unsplash.com",
       "shop.vinfastauto.com",
       "p9-sign-sg.tiktokcdn.com",
