@@ -95,8 +95,8 @@ body{
   align-items: center;
   font-weight: bold;
 
-  @include media-breakpoint-down(lg) {
-    font-size: 28px;
+  @include media-breakpoint-down(xl) {
+    font-size: 20px;
   }
 }
 
