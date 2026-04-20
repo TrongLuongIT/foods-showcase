@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-import { FooterCollectionInterface } from '@/src/helper/apiData/dataFormat';
+import { FooterCollectionInterface } from '@/src/types/models';
 
 export default function Footer({ data }: { data: FooterCollectionInterface[] }) {
   return (

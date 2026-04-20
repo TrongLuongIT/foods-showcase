@@ -1,6 +1,6 @@
 'use client';
 import Navbar from './Navbar';
-import { MenuInterface } from '@/src/helper/apiData/dataFormat';
+import { MenuInterface } from '@/src/types/models';
 
 export default function Header({ data }: { data: MenuInterface[] }) {
   return (

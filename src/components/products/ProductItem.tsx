@@ -5,7 +5,7 @@ import ImageCard from '../common/ImageCard';
 
 export interface ProductItemProps {
   product: {
-    id: number;
+    id: number | string;
     name: string;
     image: string;
   };

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-import { MenuInterface } from '@/src/helper/apiData/dataFormat';
+import { MenuInterface } from '@/src/types/models';
 import { logoConstant } from '@/src/helper/constants/constantData';
 import FireLogo from './logoAnimation/FireLogo';
 

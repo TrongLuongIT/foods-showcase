@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { OurStoryInterface } from '@/src/helper/apiData/dataFormat';
+import { OurStoryInterface } from '@/src/types/models';
 
 interface ImageMarqueeProps {
   images: OurStoryInterface[];

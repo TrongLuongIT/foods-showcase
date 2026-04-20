@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface SliderProps {
-  images: { src: string; alt?: string; id: number }[];
+  images: { src: string; alt?: string; id: number | string }[];
 }
 
 const variants = {

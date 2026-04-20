@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import { SocialMediaInterface } from '@/src/helper/apiData/dataFormat';
+import { SocialMediaInterface } from '@/src/types/models';
 import SocialModal from './SocialModal';
 import SocialItem from './SocialItem';
 

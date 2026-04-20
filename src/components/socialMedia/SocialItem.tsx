@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
-import { SocialMediaInterface } from '@/src/helper/apiData/dataFormat';
+import { SocialMediaInterface } from '@/src/types/models';
 import ImageCard from '../common/ImageCard';
 
 const SocialItem = memo(

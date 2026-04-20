@@ -1,6 +1,6 @@
 'use client';
 import ImageCard from '@/src/components/common/ImageCard';
-import { ReasonInterface } from '@/src/helper/apiData/dataFormat';
+import { ReasonInterface } from '@/src/types/models';
 
 export default function BrandReasonClient({ reasonData }: { reasonData: ReasonInterface[] }) {
   return (
