@@ -11,14 +11,14 @@ export default function Error({
 }) {
   useEffect(() => {
     // Đây là nơi bạn có thể gửi log về Server hoặc các bên như Sentry/LogRocket
-    console.error("Caught by Error Boundary:", error);
+    console.error('Caught by Error Boundary:', error);
   }, [error]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[400px]">
       <h2 className="text-xl font-bold text-red-600">
         {/* User sẽ chỉ thấy thông báo thân thiện mà bạn đã throw ở bước 1 */}
-        {error.message} 
+        {error.message}
       </h2>
       <button
         onClick={() => reset()} // Thử tải lại trang

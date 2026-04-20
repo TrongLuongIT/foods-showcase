@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import ImageCard from "../common/ImageCard";
+import { useRouter } from 'next/navigation';
+import ImageCard from '../common/ImageCard';
 
 export interface ProductItemProps {
   product: {
@@ -11,18 +11,17 @@ export interface ProductItemProps {
   };
 }
 
-export default function ProductItem({ product }: ProductItemProps){
-
+export default function ProductItem({ product }: ProductItemProps) {
   const router = useRouter();
 
   const onClickMenu = () => {
-    router.push("/about");
-  }
+    router.push('/about');
+  };
 
   return (
     <div className="col-6 col-md-3 mt-4" key={product.id}>
       <div className="pointer" onClick={onClickMenu}>
-        <ImageCard 
+        <ImageCard
           src={product.image}
           alt={product.name}
           title={product.name}
@@ -30,5 +29,5 @@ export default function ProductItem({ product }: ProductItemProps){
         />
       </div>
     </div>
-  )
+  );
 }

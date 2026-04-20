@@ -1,7 +1,7 @@
 $border-radius: 0.3rem;
-
-@import "bootstrap/scss/bootstrap";
-@import "bootstrap-icons/font/bootstrap-icons.css";
+@use 'sass:color';
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Brand colors config
 // $brand-color-1: #ee742c;
@@ -13,40 +13,39 @@ $brand-background-2: #f37338;
 $brand-background-3: #176ca1;
 $brand-background-4: #85c1e1;
 
-
 $brand-text: rgb(34, 30, 30);
-$brand-text-hover: darken($brand-text, 20%);
+$brand-text-hover: color.scale($brand-text, $lightness: -17%);
 $brand-text-2: white;
-$brand-text-2-hover: darken($brand-text-2, 20%);
+$brand-text-2-hover: color.scale($brand-text-2, $lightness: -17%);
 
 $brand-color-red: #ff2d26;
 
 /* COLOR LAYOUT */
-body{
+body {
   background-color: $brand-background;
   color: $brand-text;
 }
 
 .background-brand {
   background-color: $brand-background;
-} 
+}
 
-.nav-link{
+.nav-link {
   color: $brand-text-2 !important;
-  &:hover{
+  &:hover {
     text-shadow: 0px 0 10px rgb(214 22 193);
   }
 }
 
-.sticky-brand{
+.sticky-brand {
   position: sticky;
   bottom: 0;
   z-index: 2;
-  background-color: darken($brand-background-2, 10%);
+  background-color: color.scale($brand-background-2, $lightness: -17%);
   color: $brand-text-2;
 }
 
-.sticky-header{
+.sticky-header {
   position: sticky;
   top: 0;
   z-index: 4;
@@ -58,19 +57,20 @@ body{
   color: white;
 }
 
-.brand-mode-2{
+.brand-mode-2 {
   background-color: $brand-background-2;
   color: $brand-text-2;
 }
 
 /* END COLOR LAYOUT */
 
-
 .title-brand-1 {
   @extend .display-1;
 }
 
-.transition-all { transition: all 0.3s ease; }
+.transition-all {
+  transition: all 0.3s ease;
+}
 
 .desktop-nav .nav-link {
   transition: color 0.3s ease;
@@ -88,7 +88,7 @@ body{
   background: none;
 }
 
-.brand-hotline{
+.brand-hotline {
   color: $brand-text-2;
   font-size: 36px;
   display: flex;
@@ -108,10 +108,11 @@ body{
   10% {
     transform: translateY(10px);
   }
-  20%{
+  20% {
     transform: translateY(-5px);
   }
-  30%, 95% {
+  30%,
+  95% {
     transform: translateY(0);
   }
   100% {
@@ -119,13 +120,13 @@ body{
   }
 }
 
-.wavy-text span{
+.wavy-text span {
   display: inline-block;
   animation: 3s ease-in-out 0s infinite normal both running wavyAnim;
   animation-delay: calc(var(--i) * 0.1s);
 }
 
-.dot-point{
+.dot-point {
   width: 20px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
@@ -141,12 +142,12 @@ body{
 .pointer {
   cursor: pointer;
 }
-.box-shadow{
+.box-shadow {
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Title cấp 1 */
-.title-category{
+.title-category {
   font-weight: bold;
   font-size: 36px;
   padding-bottom: 20px;
@@ -159,13 +160,13 @@ body{
 }
 
 /* Title cấp 2 */
-.title-product{
+.title-product {
   font-weight: bold;
   font-size: 16px;
-  padding: 10px
+  padding: 10px;
 }
 
-.tilte-footer{
+.tilte-footer {
   font-size: 16px;
 }
 
@@ -179,13 +180,13 @@ body{
   transition: transform 0.5s ease;
 }
 
-[aria-expanded="true"] .arrow-collapse {
+[aria-expanded='true'] .arrow-collapse {
   transform: rotate(-135deg); /* mũi tên lên */
 }
 
 .bootstrap-padding {
-  padding-left: calc(var(--bs-gutter-x) * .5);
-  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
 }
 
 // limit text row
@@ -198,7 +199,7 @@ body{
     -webkit-line-clamp: #{$i};
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 1.5em; 
-    max-height: calc(1.5em * #{$i}); 
+    line-height: 1.5em;
+    max-height: calc(1.5em * #{$i});
   }
 }
