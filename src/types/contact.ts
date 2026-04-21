@@ -1,4 +1,4 @@
-export type FormStatus = "idle" | "sending" | "success" | "error";
+export type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 export interface ContactData {
   name: string;
@@ -6,10 +6,10 @@ export interface ContactData {
   message: string;
 }
 
-export interface ContactState{
+export interface ContactState {
   status: FormStatus;
   message: string;
   errors?: {
     [K in keyof ContactData]?: string[];
-  }
+  };
 }

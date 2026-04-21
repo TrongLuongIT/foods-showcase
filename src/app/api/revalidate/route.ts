@@ -19,8 +19,8 @@ export async function GET(request: NextRequest) {
   // Lệnh quan trọng nhất: Xóa cache của những hàm có gắn Tag này
   revalidateTag(tag);
 
-  return NextResponse.json({ 
-    revalidated: true, 
-    message: `Đã xóa cache cho nhóm: ${tag}` 
+  return NextResponse.json({
+    revalidated: true,
+    message: `Đã xóa cache cho nhóm: ${tag}`,
   });
 }

@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { API_URL, isDevMode } from '@/src/helper/config';
+import { API_URL, isDevMode } from '@/src/helper/constants/config';
 
 /**
  * Hàm lấy Token từ Server:
@@ -18,7 +18,7 @@ const getAuthToken = async () => {
       return undefined;
     }
   }
-  return undefined; 
+  return undefined;
 };
 
 const apiClient: AxiosInstance = axios.create({
@@ -30,33 +30,36 @@ const apiClient: AxiosInstance = axios.create({
 });
 
 // Request Interceptor
-apiClient.interceptors.request.use(async (config) => {
-  // Lấy token từ Cookie (chỉ lấy được khi chạy trên Server)
-  const token = await getAuthToken();
-  
-  if (token && config.headers) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-}, (error) => Promise.reject(error));
+apiClient.interceptors.request.use(
+  async (config) => {
+    // Lấy token từ Cookie (chỉ lấy được khi chạy trên Server)
+    const token = await getAuthToken();
+
+    if (token && config.headers) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 // Response Interceptor
 apiClient.interceptors.response.use(
   (response) => response.data,
   (error) => {
     const errorResponse = error.response?.data;
-    
-    console.error("--- API ERROR ---");
-    console.error("URL:", API_URL,  error.config?.url);
-    console.error("Status:", error.response?.status);
-    console.error("Message:", errorResponse?.error?.message || error.message);
-    console.error("--------------------");
+
+    console.error('--- API ERROR ---');
+    console.error('URL:', API_URL, error.config?.url);
+    console.error('Status:', error.response?.status);
+    console.error('Message:', errorResponse?.error?.message || error.message);
+    console.error('--------------------');
 
     let errorMessage = error.response?.data || error.message;
     if (isDevMode) {
       errorMessage += ` (Debug info: ${JSON.stringify(error.response)})`;
-    }else{
-      errorMessage = "Có lỗi xảy ra, vui lòng thử lại sau.";
+    } else {
+      errorMessage = 'Có lỗi xảy ra, vui lòng thử lại sau.';
     }
     throw new Error(errorMessage);
   }
@@ -73,7 +76,7 @@ export const thirdPartyClient: AxiosInstance = axios.create({
 thirdPartyClient.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    console.error("Third Party API Error:", error.message);
+    console.error('Third Party API Error:', error.message);
     return Promise.reject(error);
   }
 );

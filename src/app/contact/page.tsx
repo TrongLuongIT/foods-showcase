@@ -1,13 +1,13 @@
-import ContactForm from "./components/ContactForm";
-import StoreInfor from "./components/StoreInfor";
-import BrandReason from "./components/BrandReason";
-import BranchStory from "./components/BranchStory";
+import ContactForm from './components/ContactForm';
+import StoreInfor from './components/StoreInfor';
+import BrandReason from './components/BrandReason';
+import BranchStory from './components/BranchStory';
 
 export default function ContactPage() {
   return (
     <>
       <BranchStory />
-      
+
       <div className="py-5">
         <div className="container">
           <div className="row">

@@ -1,15 +1,14 @@
-"use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { OurStoryInterface } from "@/src/helper/dataFormat";
+'use client';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { OurStoryInterface } from '@/src/types/models';
 
 interface ImageMarqueeProps {
-  images: OurStoryInterface[],
+  images: OurStoryInterface[];
   speed?: number; // Tốc độ chạy (giây), số càng lớn càng chậm
 }
 
 export default function ImageMarquee({ images, speed = 30 }: ImageMarqueeProps) {
-
   const newImages = [...images, ...images]; // Nhân đôi mảng hình ảnh
 
   return (
@@ -17,20 +16,20 @@ export default function ImageMarquee({ images, speed = 30 }: ImageMarqueeProps) 
       <motion.div
         className="d-flex "
         animate={{
-          x: ["0%", "-50%"], // Chạy từ đầu đến nửa dãy hình (phần nhân đôi)
+          x: ['0%', '-50%'], // Chạy từ đầu đến nửa dãy hình (phần nhân đôi)
         }}
         transition={{
-          ease: "linear",
+          ease: 'linear',
           duration: speed, // Tốc độ chạy (giây), số càng lớn càng chậm
           repeat: Infinity, // Chạy mãi mãi
         }}
-        style={{ width: "max-content" }}
+        style={{ width: 'max-content' }}
       >
         {newImages.map((image, index) => (
-          <div 
-            key={index} 
-            className="position-relative mx-1 border border-danger" 
-            style={{ width: "300px", height: "250px", flexShrink: 0 }}
+          <div
+            key={index}
+            className="position-relative mx-1 border border-danger"
+            style={{ width: '300px', height: '250px', flexShrink: 0 }}
           >
             <Image
               src={image.src}
