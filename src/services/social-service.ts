@@ -19,16 +19,16 @@ export const getSocialMediaLinks = createCacheRequest(
   { tags: [CACHE_NAME.SOCIAL_MEDIA.TAGS, CACHE_NAME.SOCIAL_MEDIA.KEYS.LIST_TIKTOK] }
 );
 
-export const getBanner = createCacheRequest(
-  async (): Promise<BannerInterface[]> => {
-    try {
-      const response = await apiClient.get(getBannerLink);
-      return bannerFormat(response?.data);
-    } catch (error) {
-      console.error('Error fetching banners:', error);
-      return bannerFormat();
-    }
-  },
-  [CACHE_NAME.BANNERS.KEYS.LIST],
-  { tags: [CACHE_NAME.BANNERS.TAGS, CACHE_NAME.BANNERS.KEYS.LIST] }
+// get banner
+const getBannerWithCache = createCacheRequest(async (): Promise<BannerInterface[]> => {
+	try{
+		const response = await apiClient.get(getBannerLink);
+		return bannerFormat(response?.data);
+	}catch(error){
+		console.error("Error fetching banners:", error);
+		return bannerFormat();
+	}
+},
+[CACHE_NAME.BANNERS.KEYS.LIST],
+{tags: [CACHE_NAME.BANNERS.TAGS, CACHE_NAME.BANNERS.KEYS.LIST]}
 );
