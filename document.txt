@@ -31,4 +31,4 @@ Công nghệ áp dụng
 12-wait: performance website trên 90 mobile, 99 desktop
 13-wait: test and anti ddos website
 14-wait: apply unit test
-
+15: install eslint, prettier
