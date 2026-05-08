@@ -86,7 +86,7 @@ export default function FireLogo() {
   return (
     <div className="d-flex justify-content-center align-items-center position-relative pointer py-2 bootstrap-padding">
       {/* Icon Logo */}
-      <motion.div style={{ x: logoX, rotate: logoRotate }}>
+      <motion.div style={{ x: logoX, rotate: logoRotate }} className="logo-container">
         <Image
           {...logoConstant}
           alt={`${BRAND_INFO.NAME} logo`}
@@ -122,7 +122,7 @@ function AnimatedLetter({ letter, index, logoX }: AnimatedLetterProps) {
   const x = useTransform(logoX, [start, end], [-10, 0]);
 
   return (
-    <motion.span key={index} style={{ opacity, scale, x }}>
+    <motion.span className="animated-letter" key={index} style={{ opacity, scale, x }}>
       {letter}
     </motion.span>
   );
